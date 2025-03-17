@@ -1,74 +1,162 @@
 import React, { useState } from "react";
 
 const Formulario = ({ colaboradores, setColaboradores }) => {
-const [nombre, setNombre] = useState("");
-const [correo, setCorreo] = useState("");
-const [edad, setEdad] = useState("");
-const [cargo, setCargo] = useState("");
-const [telefono, setTelefono] = useState("");
-const [errorMessage, setErrorMessage] = useState("");
-const [successMessage, setSuccessMessage] = useState("");
+  const [nuevoColaborador, setNuevoColaborador] = useState({
+    nombre: "",
+    correo: "",
+    edad: "",
+    cargo: "",
+    telefono: "",
+  });
+  const [error, setError] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
 
-const guardar = (e) => {
+  const handleChange = (e) => {
+    setNuevoColaborador({
+      ...nuevoColaborador,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    const correoRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const edadValida = !isNaN(edad) && edad !== "" && edad >= 18 && edad <= 60;
-    const telefonoValido = /^\d{8}$/.test(telefono) && telefono !== "";
-
-
-    if (nombre === "" || correo === "" || edad === "" || cargo === "" || telefono === "") {
-    setErrorMessage("Completa todos los campos!");
-    return;
+    // Validar que todos los campos estén llenos
+    if (
+      !nuevoColaborador.nombre ||
+      !nuevoColaborador.correo ||
+      !nuevoColaborador.edad ||
+      !nuevoColaborador.cargo ||
+      !nuevoColaborador.telefono
+    ) {
+      setError(true);
+      setSuccessMessage("");
+      return;
     }
 
-    if (!correoRegex.test(correo)) {
-        setErrorMessage("Ingrese un correo electrónico válido");
-        return;
+    // Validar formato de correo
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(nuevoColaborador.correo)) {
+      setError("El formato del correo electrónico es inválido");
+      setSuccessMessage("");
+      return;
     }
 
-    if (!edadValida) {
-        setErrorMessage("Edad inválida. Debe estar entre 18 y 60 años.");
-        return;
-    }
-    
-    if (!telefonoValido) {
-        setErrorMessage("El teléfono debe contener 8 dígitos");
-        return;
-    }
+    // Crear nuevo colaborador
+    const newColaborador = {
+      id: Date.now().toString(),
+      ...nuevoColaborador,
+    };
 
-    const nuevoUsuario = { id: colaboradores.length + 1, nombre, correo, edad, cargo, telefono };
-    setColaboradores([...colaboradores, nuevoUsuario]);
+    // Actualizar el estado
+    setColaboradores([...colaboradores, newColaborador]);
 
-    setSuccessMessage("Colaborador agregado!");
-    limpiarCampos();
-};
+    // Limpiar el formulario
+    setNuevoColaborador({
+      nombre: "",
+      correo: "",
+      edad: "",
+      cargo: "",
+      telefono: "",
+    });
+    setError(false);
+    setSuccessMessage("¡Colaborador agregado exitosamente!");
 
-const limpiarCampos = () => {
-    setNombre("");
-    setCorreo("");
-    setEdad("");
-    setCargo("");
-    setTelefono("");
-    setErrorMessage("");
-};
+    // Limpiar mensaje de éxito después de 3 segundos
+    setTimeout(() => {
+      setSuccessMessage("");
+    }, 3000);
+  };
 
-return (
-    <>
-    <form onSubmit={guardar}>
-        <input type="text" placeholder="Nombre del colaborador" value={nombre} onChange={(e) => setNombre(e.target.value)} />
-        <input type="text" placeholder="Email del colaborador" value={correo} onChange={(e) => setCorreo(e.target.value)} />
-        <input type="text" placeholder="Edad del Colaborador" value={edad} onChange={(e) => setEdad(e.target.value)} />
-        <input type="text" placeholder="Cargo del colaborador" value={cargo} onChange={(e) => setCargo(e.target.value)} />
-        <input type="text" placeholder="Teléfono del colaborador" value={telefono} onChange={(e) => setTelefono(e.target.value)} />
-        <button type="submit" className="btn btn-primary">Agregar colaborador</button>
-        {errorMessage && <p style={{ color: "red", backgroundColor: "rgba(255, 0, 0, 0.1)", padding: "5px", borderRadius: "5px", marginTop: "15px"}}>{errorMessage}</p>}
-        {successMessage && <p style={{ color: "green", backgroundColor: "rgba(0, 255, 0, 0.1)", padding: "5px", borderRadius: "5px", marginTop: "15px"}}>{successMessage}</p>}
+  return (
+    <form onSubmit={handleSubmit} className="needs-validation text-center">
+      <div className="mb-3">
+        <label htmlFor="nombre" className="form-label">
+          Nombre
+        </label>
+        <input
+          type="text"
+          className="form-control text-center"
+          id="nombre"
+          name="nombre"
+          value={nuevoColaborador.nombre}
+          onChange={handleChange}
+          placeholder="Ingrese el nombre"
+        />
+      </div>
+      <div className="mb-3">
+        <label htmlFor="correo" className="form-label">
+          Correo
+        </label>
+        <input
+          type="email"
+          className="form-control text-center"
+          id="correo"
+          name="correo"
+          value={nuevoColaborador.correo}
+          onChange={handleChange}
+          placeholder="Ingrese el correo"
+        />
+      </div>
+      <div className="mb-3">
+        <label htmlFor="edad" className="form-label">
+          Edad
+        </label>
+        <input
+          type="number"
+          className="form-control text-center"
+          id="edad"
+          name="edad"
+          value={nuevoColaborador.edad}
+          onChange={handleChange}
+          placeholder="Ingrese la edad"
+        />
+      </div>
+      <div className="mb-3">
+        <label htmlFor="cargo" className="form-label">
+          Cargo
+        </label>
+        <input
+          type="text"
+          className="form-control text-center"
+          id="cargo"
+          name="cargo"
+          value={nuevoColaborador.cargo}
+          onChange={handleChange}
+          placeholder="Ingrese el cargo"
+        />
+      </div>
+      <div className="mb-3">
+        <label htmlFor="telefono" className="form-label">
+          Teléfono
+        </label>
+        <input
+          type="tel"
+          className="form-control text-center"
+          id="telefono"
+          name="telefono"
+          value={nuevoColaborador.telefono}
+          onChange={handleChange}
+          placeholder="Ingrese el teléfono"
+        />
+      </div>
+      {error && (
+        <div className="alert alert-danger text-center" role="alert">
+          {typeof error === "string" ? error : "Todos los campos son obligatorios"}
+        </div>
+      )}
+      {successMessage && (
+        <div className="alert alert-success text-center" role="alert">
+          {successMessage}
+        </div>
+      )}
+      <div className="d-grid">
+        <button type="submit" className="btn btn-primary">
+          Agregar Colaborador
+        </button>
+      </div>
     </form>
-
-    
-    </>
-);
+  );
 };
 
 export default Formulario;
