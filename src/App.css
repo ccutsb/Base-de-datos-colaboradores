@@ -532,3 +532,16 @@ body {
 .dark-mode .card-title.text-center:after {
   background-color: var(--dark-text);
 }
+
+/* Specific table cell styles */
+.table td.nombre-cell,
+.table td.edad-cell {
+  transition: color 0.3s ease, font-weight 0.3s ease;
+}
+
+.dark-mode .table td.nombre-cell,
+.dark-mode .table td.edad-cell {
+  color: white !important;
+  font-weight: 500;
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.1);
+}

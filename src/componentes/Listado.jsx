@@ -70,13 +70,13 @@ const Listado = ({ colaboradores, onEliminar }) => {
         <tbody>
           {getSortedColaboradores().map((colaborador) => (
             <tr key={colaborador.id}>
-              <td>{colaborador.nombre}</td>
+              <td className="nombre-cell">{colaborador.nombre}</td>
               <td>
                 <a href={`mailto:${colaborador.correo}`} className="text-decoration-none">
                   {colaborador.correo}
                 </a>
               </td>
-              <td>{colaborador.edad}</td>
+              <td className="edad-cell">{colaborador.edad}</td>
               <td>
                 <span className="badge bg-info text-dark">
                   {colaborador.cargo}
