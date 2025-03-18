@@ -212,7 +212,7 @@ const Formulario = ({ colaboradores, setColaboradores }) => {
       <div className="d-grid gap-2">
         <button type="submit" className="btn btn-primary">
           <i className="bi bi-person-plus-fill me-2"></i>
-          Agregar Personal
+          Agregar
         </button>
       </div>
     </form>
