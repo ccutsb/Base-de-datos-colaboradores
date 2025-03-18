@@ -71,7 +71,7 @@ function App() {
                 <div className="card-body">
                   <div className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-4 gap-3">
                     <h2 className="card-title h4 mb-0">
-                      Listado de personal
+                      Listado del personal
                       <span className="badge bg-primary ms-2">
                         {colaboradores.length}
                       </span>

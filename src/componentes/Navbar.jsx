@@ -15,8 +15,8 @@ const Navbar = ({ darkMode, onToggleDarkMode }) => {
         {/* Logo y título de la aplicación */}
         <span className="navbar-brand d-flex align-items-center">
           <i className="bi bi-people-fill me-2 text-white"></i>
-          <span className="d-none d-sm-inline fs-4 fw-bold">Administrador de Personal</span>
-          <span className="d-sm-none">Personal</span>
+          <span className="d-none d-sm-inline fs-4 fw-bold">Administrador</span>
+          <span className="d-sm-none"></span>
         </span>
         
         {/* Sección derecha: información de empresa y botón de modo oscuro */}
