@@ -23,4 +23,28 @@ export const BaseColaboradores = [
     cargo: "Ingeniero DevOps",
     telefono: "99226644"
     },
+    {
+    id: "4",
+    nombre: "Camila Fernández",
+    correo: "camilaf@colaborador.com",
+    edad: "26",
+    cargo: "Diseñadora UX/UI",
+    telefono: "99112233"
+    },
+    {
+    id: "5",
+    nombre: "Martín González",
+    correo: "marting@colaborador.com",
+    edad: "35",
+    cargo: "Arquitecto de Software",
+    telefono: "99334455"
+    },
+    {
+    id: "6",
+    nombre: "Valentina López",
+    correo: "valentinal@colaborador.com",
+    edad: "29",
+    cargo: "Analista QA",
+    telefono: "99445566",
+    }
     ]

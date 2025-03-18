@@ -49,7 +49,7 @@ const Buscador = ({ colaboradores, setFiltroColaboradores }) => {
         <input
           type="text"
           className="form-control"
-          placeholder="Buscar colaboradores..."
+          placeholder="Buscar personal..."
           value={terminoBusqueda}
           onChange={handleChange}
           aria-label="Buscar colaboradores"

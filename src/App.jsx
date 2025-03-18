@@ -57,7 +57,7 @@ function App() {
             <div className="col-12 col-lg-4">
               <div className="card shadow-sm h-100">
                 <div className="card-body">
-                  <h2 className="card-title h4 mb-4 text-center">Agregar colaborador</h2>
+                  <h2 className="card-title h4 mb-4 text-center">Agregar personal</h2>
                   <Formulario
                     colaboradores={colaboradores}
                     setColaboradores={setColaboradores}
@@ -71,7 +71,7 @@ function App() {
                 <div className="card-body">
                   <div className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-4 gap-3">
                     <h2 className="card-title h4 mb-0">
-                      Listado de colaboradores
+                      Listado de personal
                       <span className="badge bg-primary ms-2">
                         {colaboradores.length}
                       </span>

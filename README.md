@@ -1,4 +1,4 @@
-# Gestión de Colaboradores
+# Administrador de Personal
 
 Aplicación web desarrollada como proyecto del módulo React para Desafío Latam, enfocada en la gestión de colaboradores para la empresa XYZ.
 

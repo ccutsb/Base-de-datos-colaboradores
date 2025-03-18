@@ -129,7 +129,7 @@ const Formulario = ({ colaboradores, setColaboradores }) => {
       {exito && (
         <div className="alert alert-success mb-3" role="alert">
           <i className="bi bi-check-circle-fill me-2"></i>
-          Colaborador agregado exitosamente
+          Personal agregado exitosamente
         </div>
       )}
 
@@ -212,7 +212,7 @@ const Formulario = ({ colaboradores, setColaboradores }) => {
       <div className="d-grid gap-2">
         <button type="submit" className="btn btn-primary">
           <i className="bi bi-person-plus-fill me-2"></i>
-          Agregar Colaborador
+          Agregar Personal
         </button>
       </div>
     </form>
