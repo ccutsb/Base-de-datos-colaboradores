@@ -67,7 +67,7 @@ body {
   }
 }
 
-/* Dark Mode Styles */
+/* Estilos para Modo Oscuro */
 .dark-mode {
   background-color: var(--bg-dark);
   color: var(--dark-text);
@@ -108,7 +108,7 @@ body {
   color: var(--dark-text);
 }
 
-/* Navbar Styles */
+/* Estilos de la Barra de Navegación */
 .navbar {
   transition: var(--transition);
   padding: 0.75rem 0;
@@ -116,14 +116,14 @@ body {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-/* Content Styles */
+/* Estilos del Contenido */
 .content-section {
   width: 100%;
   padding: 1.5rem 0;
   flex: 1;
 }
 
-/* Card Styles */
+/* Estilos de Tarjetas */
 .card {
   border: none;
   border-radius: 10px;
@@ -143,7 +143,7 @@ body {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1) !important;
 }
 
-/* Form Controls */
+/* Controles de Formulario */
 .form-control {
   border-radius: 6px;
   border: 1px solid #dee2e6;
@@ -163,7 +163,7 @@ body {
   cursor: pointer;
 }
 
-/* Table Styles */
+/* Estilos de Tabla */
 .table-responsive {
   width: 100%;
   margin-bottom: 0;
@@ -212,7 +212,7 @@ body {
   background-color: rgba(0, 0, 0, 0.02);
 }
 
-/* Buttons */
+/* Botones */
 .btn {
   transition: var(--transition);
 }
@@ -241,7 +241,7 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Badges */
+/* Insignias */
 .badge {
   font-weight: 500;
   padding: 0.5rem 0.75rem;
@@ -262,7 +262,7 @@ body {
   font-size: 0.875rem;
 }
 
-/* Alerts */
+/* Alertas */
 .alert {
   margin-top: 1rem;
   padding: 0.75rem 1.25rem;
@@ -283,7 +283,7 @@ body {
   color: #28a745;
 }
 
-/* Search */
+/* Buscador */
 .search-container {
   width: 100%;
 }
@@ -303,11 +303,21 @@ body {
   border-radius: 6px 0 0 6px;
   padding: 0.5rem 0.75rem;
   color: #6c757d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+}
+
+.input-group-text i {
+  font-size: 0.875rem;
+  color: #6c757d;
 }
 
 .input-group .form-control {
   border-radius: 0 6px 6px 0;
   border-left: none;
+  height: 38px;
 }
 
 .input-group .form-control:focus {
@@ -315,7 +325,21 @@ body {
   margin-left: -1px;
 }
 
-/* Utility Classes */
+.dark-mode .input-group-text {
+  background-color: #2d3748;
+  border-color: #4a5568;
+  color: #cbd5e0;
+}
+
+.dark-mode .input-group-text i {
+  color: #cbd5e0;
+}
+
+.dark-mode .input-group .form-control {
+  border-color: #4a5568;
+}
+
+/* Clases de Utilidad */
 .w-md-50 {
   width: 100%;
 }
@@ -326,7 +350,7 @@ body {
   }
 }
 
-/* Brand */
+/* Marca */
 .navbar-brand {
   font-weight: 600;
   color: #2c3e50;
@@ -337,7 +361,7 @@ body {
   color: #3498db;
 }
 
-/* Dark Mode Improvements */
+/* Mejoras para Modo Oscuro */
 .dark-mode .table-hover tbody tr:hover {
   background-color: rgba(255, 255, 255, 0.05) !important;
 }
@@ -352,7 +376,7 @@ body {
   color: var(--dark-bg);
 }
 
-/* Responsive Adjustments */
+/* Ajustes Responsivos */
 @media (max-width: 768px) {
   .table {
     font-size: 0.875rem;
@@ -403,7 +427,7 @@ body {
   text-align: left;
 }
 
-/* Table Styles Improvements */
+/* Mejoras de Estilos de Tabla */
 .acciones-column {
   min-width: 110px;
   width: 110px;
@@ -411,7 +435,7 @@ body {
   box-shadow: none;
 }
 
-/* Ensure table is always wide enough to show all columns */
+/* Asegurar que la tabla siempre sea lo suficientemente ancha para mostrar todas las columnas */
 .table-responsive {
   margin-bottom: 0;
   border-radius: 8px;
@@ -422,7 +446,7 @@ body {
   min-width: 800px;
 }
 
-/* Make sure all buttons are always visible on all screens */
+/* Asegurar que todos los botones sean siempre visibles en todas las pantallas */
 .acciones-column {
   position: sticky;
   right: 0;
@@ -444,7 +468,7 @@ body {
   background-color: rgba(255, 255, 255, 0.05);
 }
 
-/* Remove previous table improvements that are no longer needed */
+/* Eliminar mejoras de tabla anteriores que ya no son necesarias */
 .table td:last-child {
   min-width: auto;
 }
@@ -466,7 +490,7 @@ body {
   }
 }
 
-/* Form Styles Improvements */
+/* Mejoras de Estilos de Formulario */
 .form-label {
   font-weight: 500;
   display: block;
@@ -505,7 +529,7 @@ body {
   transform: translateY(-2px);
 }
 
-/* Card Title Styles */
+/* Estilos de Títulos de Tarjetas */
 .card-title {
   font-weight: 600;
   color: var(--primary-color);
@@ -533,7 +557,7 @@ body {
   background-color: var(--dark-text);
 }
 
-/* Specific table cell styles */
+/* Estilos específicos de celdas de tabla */
 .table td.nombre-cell,
 .table td.edad-cell {
   transition: color 0.3s ease, font-weight 0.3s ease;
@@ -545,3 +569,96 @@ body {
   font-weight: 500;
   text-shadow: 0 0 1px rgba(255, 255, 255, 0.1);
 }
+
+/* Estilos Personalizados de la Barra de Navegación */
+.bg-navy {
+  background-color: #1a237e !important; /* Azul marino elegante */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1rem;
+}
+
+.text-navy {
+  color: #1a237e !important;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.navbar-brand i {
+  font-size: 1.5rem;
+}
+
+.dark-mode-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.btn-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  padding: 0;
+  border: none;
+  background-color: #111236;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-circle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.btn-circle:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Ajustes para Barra de Navegación en Modo Oscuro */
+.dark-mode .bg-navy {
+  background-color: #121858 !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.dark-mode .btn-circle {
+  background-color: #2c3e50;
+}
+
+/* Estilos de Tabla Responsiva */
+@media (max-width: 1080px) {
+  .columna-oculta-movil {
+    display: none !important;
+  }
+  
+  .table {
+    min-width: 780px; /* Reducir el ancho mínimo en móviles ya que hay menos columnas */
+  }
+  
+  /* Ajustar anchos de columnas en móvil */
+  .table th[data-columna="nombre"],
+  .table td.nombre-cell {
+    min-width: 130px !important;
+  }
+  
+  .table th[data-columna="cargo"],
+  .table td.cargo-cell {
+    min-width: 120px !important;
+  }
+  
+  .table th[data-columna="telefono"],
+  .table td.telefono-cell {
+    min-width: 120px !important;
+  }
+}
+
+/* Asegurar que las transiciones sean suaves */
+.table th, 
+.table td {
+  transition: width 0.3s ease, padding 0.3s ease;
+}
+

@@ -1,6 +1,6 @@
 # Gestión de Colaboradores
 
-Aplicación web desarrollada como proyecto del módulo "React I" para Desafío Latam, enfocada en la gestión de colaboradores de una empresa.
+Aplicación web desarrollada como proyecto del módulo React para Desafío Latam, enfocada en la gestión de colaboradores para la empresa XYZ.
 
 ![Badge React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black)
 ![Badge Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=flat&logo=bootstrap&logoColor=white)

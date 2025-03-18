@@ -1,39 +1,58 @@
 import React, { useState } from "react";
 
+/**
+ * Componente de búsqueda para filtrar colaboradores por nombre, correo, cargo, etc.
+ * 
+ * @param {Array} colaboradores - Lista completa de colaboradores 
+ * @param {function} setFiltroColaboradores - Función para actualizar la lista filtrada
+ * @returns {JSX.Element} Campo de búsqueda con funcionalidad de filtrado
+ */
 const Buscador = ({ colaboradores, setFiltroColaboradores }) => {
-  const [busqueda, setBusqueda] = useState("");
+  // Estado para el término de búsqueda
+  const [terminoBusqueda, setTerminoBusqueda] = useState("");
 
-  const handleBusqueda = (e) => {
-    const valorBusqueda = e.target.value;
-    setBusqueda(valorBusqueda);
+  /**
+   * Filtra los colaboradores en función del término de búsqueda
+   * @param {Event} e - Evento de cambio del input
+   */
+  const handleChange = (e) => {
+    const valorBusqueda = e.target.value.toLowerCase();
+    setTerminoBusqueda(valorBusqueda);
     
-    const filtroColaboradores = colaboradores.filter((colaborador) => {
-      const searchTerm = valorBusqueda.toLowerCase();
+    // Si el término está vacío, mostrar todos los colaboradores
+    if (!valorBusqueda.trim()) {
+      setFiltroColaboradores(colaboradores);
+      return;
+    }
+
+    // Filtrar colaboradores que coincidan con el término en cualquier campo
+    const resultadosFiltrados = colaboradores.filter((colaborador) => {
       return (
-        colaborador.nombre.toLowerCase().includes(searchTerm) ||
-        colaborador.correo.toLowerCase().includes(searchTerm) ||
-        colaborador.cargo.toLowerCase().includes(searchTerm) ||
-        colaborador.telefono.includes(searchTerm) ||
-        colaborador.edad.toString().includes(searchTerm)
+        colaborador.nombre.toLowerCase().includes(valorBusqueda) ||
+        colaborador.correo.toLowerCase().includes(valorBusqueda) ||
+        colaborador.cargo.toLowerCase().includes(valorBusqueda) ||
+        colaborador.telefono.includes(valorBusqueda) ||
+        colaborador.edad.toString().includes(valorBusqueda)
       );
     });
-    
-    setFiltroColaboradores(filtroColaboradores);
+
+    // Actualizar la lista filtrada
+    setFiltroColaboradores(resultadosFiltrados);
   };
 
   return (
     <div className="search-container">
       <div className="input-group">
         <span className="input-group-text">
-          <i className="fas fa-search"></i>
+          <i className="bi bi-search"></i>
         </span>
         <input
           type="text"
           className="form-control"
-          placeholder="Buscar colaborador..."
-          value={busqueda}
-          onChange={handleBusqueda}
-          aria-label="Buscar colaborador"
+          placeholder="Buscar colaboradores..."
+          value={terminoBusqueda}
+          onChange={handleChange}
+          aria-label="Buscar colaboradores"
         />
       </div>
     </div>
